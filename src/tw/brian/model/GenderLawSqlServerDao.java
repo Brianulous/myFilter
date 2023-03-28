@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import tw.brian.exception.GenderSQLException;
 import tw.brian.exception.LaborSQLException;
 import tw.brian.util.LocalDateutil;
 
@@ -64,7 +62,7 @@ public class GenderLawSqlServerDao implements GenderLawDao {
 		preState.setString(2, enterprise);
 		ResultSet rs = preState.executeQuery();
 		if (!rs.next()) {
-			throw new GenderSQLException("查無相關性平法案件資料");
+			throw new SQLException("查無相關性平法案件資料");
 		}
 		GenderLawCase genderLawCase = new GenderLawCase(rs.getInt("id"),
 														rs.getDate("punish_date"),
@@ -88,7 +86,7 @@ public class GenderLawSqlServerDao implements GenderLawDao {
 		preState.setString(2, enterprise);
 		ResultSet rs = preState.executeQuery();
 		if (!rs.next()) {
-			throw new GenderSQLException("查無相關性平法案件資料");
+			throw new SQLException("查無相關性平法案件資料");
 		}
 		GenderLawCase genderLawCase = new GenderLawCase(rs.getInt("id"),
 														rs.getDate("punish_date"),
@@ -173,7 +171,7 @@ public class GenderLawSqlServerDao implements GenderLawDao {
 			lawCases.add(genderLawCase);
 		}
 		if (lawCases.isEmpty()) {
-			throw new GenderSQLException("查無相關日期資料");
+			throw new SQLException("查無相關日期資料");
 		}
 
 		return lawCases;
@@ -202,7 +200,7 @@ public class GenderLawSqlServerDao implements GenderLawDao {
 			lawCases.add(genderLawCase);
 		}
 		if (lawCases.isEmpty()) {
-			throw new GenderSQLException("查無相關日期資料");
+			throw new SQLException("查無相關日期資料");
 		}
 
 		return lawCases;
@@ -233,7 +231,7 @@ public class GenderLawSqlServerDao implements GenderLawDao {
 			lawCases.add(genderLawCase);
 		}
 		if (lawCases.isEmpty()) {
-			throw new GenderSQLException("查無相關日期資料");
+			throw new SQLException("查無相關日期資料");
 		}
 
 		return lawCases;
@@ -260,7 +258,7 @@ public class GenderLawSqlServerDao implements GenderLawDao {
 			lawCases.add(genderLawCase);
 		}
 		if (lawCases.isEmpty()) {
-			throw new GenderSQLException("查無相關日期資料");
+			throw new SQLException("查無相關日期資料");
 		}
 
 		return lawCases;
